@@ -1,83 +1,135 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-body {
-  padding: 0;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
+h1{
+  width: 100%;
+  color: #3c3b39;
+  font-weight: 400;
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
+.block{
+  display: block;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
+.qa-block{
+  width: 50%;
+  display: inline-block;
+}
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+question{
+  margin-top: 40px;
+  height: 40px;
+  padding: 2px 5px 2px 20px;
+  display: block;
+  background: #3e3b3b;
+  color: white;
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 0px -1px 1px 2px #3e3b3b;
+}
+
+answer{
+  height: 60px;
+  padding: 15px 5px 2px 20px;
+  display: block;
+  background: #ded5d5;
+  color: white;
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: 0px 1px 1px 2px #ded5d5;
+}
+
+.styled-select {
+  height: 32px;
+  overflow: hidden;
+  width: 240px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 5px;
+  text-overflow: '';
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+.button-container{
+  text-align: center;
+}
+
+.button {
+  margin: 25px;
+  width: 180px;
+  text-align: center;
+  padding-top: 6px;
+  height: 27px;
+  display: inline-block;
+  box-shadow: 0px 0px 1px 2px #3e3b3b;
+  border-radius: 2px;
+  background: #ded5d5;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  border-color: red;
+}
+
+.result{
+  position: relative;
+  border-bottom: 10px solid black;
+  width: 45%;
+  margin-left: 40px;
+  display: inline-block;
+}
+
+y-axis {
+  display: inline-block;
+  width: 10px;
+  background: black;
+}
+
+y-axis ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0;
+  margin-left: -25px;
+}
+
+y-axis ul li {
+  height: 70px;
+}
+
+.bar{
+  position: absolute;
+  display: inline-block;
+  bottom: 0;
+  width: 30%;
+  text-align: center;
+  background: red;
+}
+
+correct-bar{
+  margin-left: 10%;
+}
+
+incorrect-bar{
+  margin-left: 50%;
+}
+
+correct-bar span{
+  display: block;
+  margin-top: -16px;
+}
+
+incorrect-bar span{
+  display: block;
+  margin-top: -16px;
 }
