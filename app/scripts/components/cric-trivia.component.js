@@ -2,7 +2,7 @@ var app = angular.module('cricApp')
 app.component('cricketTrivia', {
   selector: 'cricket-trivia',
   templateUrl: 'views/cric-trivia.html',
-  controller: function(questionaireService) {
+  controller: ['questionaireService', function(questionaireService){
     var self = this;
     self.submitted = false;
     self.result = {'show': false};
@@ -52,5 +52,5 @@ app.component('cricketTrivia', {
         q.answer = '';
       });
     }
-  }
+  }]
 });
