@@ -1,0 +1,17 @@
+<div class='qa-block'>
+  <div ng-repeat='o in $ctrl.questionaire'>
+    <question>{{o.question}}</question>
+    <answer>
+      <select class="styled-select semi-square" ng-class="{'error': !(o.answer) && $ctrl.submitted}" ng-model="o.answer">
+        <option value="" selected>Please Answer</option>
+        <option ng-repeat="option in o.options" value="{{option}}">{{option}}</option>
+      </select>
+      <label class='error' ng-show="$ctrl.submitted && !(o.answer) ">Please select one option atleast</label>
+    </answer>
+    </div>
+    <div class='button-container'>  
+      <span class='button' ng-click = "$ctrl.submitForm()" >Submit</span>
+      <span class='button' ng-click = "$ctrl.clearValues()">Clear Values</span>
+    </div>
+  </div>
+ <result result='$ctrl.result'></result>

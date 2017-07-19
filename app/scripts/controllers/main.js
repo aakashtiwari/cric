@@ -10,23 +10,7 @@
 var app = angular.module('cricApp')
 app.component('cricketTrivia', {
   selector: 'cricket-trivia',
-  template: `<div class='qa-block'>
-              <div ng-repeat='o in $ctrl.questionaire'>
-                <question>{{o.question}}</question>
-                <answer>
-                  <select class="styled-select semi-square" ng-class="{'error': !(o.answer) && $ctrl.submitted}" ng-model="o.answer">
-                    <option value="" selected>Please Answer</option>
-                    <option ng-repeat="option in o.options" value="{{option}}">{{option}}</option>
-                  </select>
-                  <label class='error' ng-show="$ctrl.submitted && !(o.answer) ">Please select one option atleast</label>
-                </answer>
-                </div>
-                <div class='button-container'>  
-                  <span class='button' ng-click = "$ctrl.submitForm()" >Submit</span>
-                  <span class='button' ng-click = "$ctrl.clearValues()">Clear Values</span>
-                </div>
-              </div>
-             <result result='$ctrl.result'></result>`,
+  templateUrl: 'views/cric-trivia.html',
   controller: function() {
     var self = this;
     self.submitted = false;
@@ -60,7 +44,7 @@ app.component('cricketTrivia', {
 
     self.submitForm = function(){
       self.submitted = true;
-      let check = self.checkValue();
+      var check = self.checkValue();
       if(check){
         self.createGraph();
       }else {
@@ -69,7 +53,7 @@ app.component('cricketTrivia', {
     }
 
     self.checkValue = function(){
-      let check = true;
+      var check = true;
       self.questionaire.forEach(function(obj){
         if(!obj.answer){
           check = false;
@@ -78,7 +62,7 @@ app.component('cricketTrivia', {
       return check;
     }
     self.calculateCorrectAnswer = function(){
-      let count = 0;
+      var count = 0;
       self.questionaire.forEach(function(q){
         if(q.answer == q.correct_answer){
           count++;
@@ -87,7 +71,7 @@ app.component('cricketTrivia', {
       return count;
     }
     self.createGraph = function() {
-      let r = self.result;
+      var r = self.result;
       r.total = self.questionaire.length;
       r.correct = self.calculateCorrectAnswer();
       r.incorrect = r.total - r.correct;
@@ -107,21 +91,13 @@ app.component('cricketTrivia', {
 
 app.component('result',{
   selector: 'result',
-  template: `<div  class='result' ng-show='$ctrl.result.show'>
-              <y-axis>
-                <ul>
-                 <li ng-repeat="n in $ctrl.range($ctrl.result.total)">{{n}}</li>
-                </ul>
-              </y-axis>
-              <correct-bar class='bar' style='height:{{$ctrl.result.correctPercent}}%'><span>correct</span></correct-bar>
-              <incorrect-bar class='bar' style='height:{{$ctrl.result.incorrectPercent}}%'><span>incorrect</span></incorrect-bar>
-            </div>`,
+  templateUrl: 'views/result.html',
   bindings: { result: '<' },
   controller: function(){
     var self = this;
     self.range = function(number){
-      let limits = [];
-      for(let i = 0.5; i <= number; i = i + 0.5){
+      var limits = [];
+      for(var i = 0.5; i <= number; i = i + 0.5){
         limits.push(i);
       }
       return limits.reverse();

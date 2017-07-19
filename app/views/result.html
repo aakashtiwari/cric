@@ -1,0 +1,9 @@
+<div  class='result' ng-show='$ctrl.result.show'>
+  <y-axis>
+    <ul>
+     <li ng-repeat="n in $ctrl.range($ctrl.result.total)">{{n}}</li>
+    </ul>
+  </y-axis>
+  <correct-bar class='bar' style='height:{{$ctrl.result.correctPercent}}%'><span>correct</span></correct-bar>
+  <incorrect-bar class='bar' style='height:{{$ctrl.result.incorrectPercent}}%'><span>incorrect</span></incorrect-bar>
+</div>
